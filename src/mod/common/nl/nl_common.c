@@ -327,7 +327,8 @@ struct sk_buff *jnls_skb(struct jnl_state *state)
 
 struct joolnlhdr *jnls_jhdr(struct jnl_state *state)
 {
-	return state->gnlinfo->userhdr;
+	//return state->gnlinfo->userhdr;
+	return (struct joolnlhdr *)((u8 *)state->gnlinfo->genlhdr + GENL_HDRLEN);
 }
 
 void jnls_set_xlator(struct jnl_state *state, struct xlator *jool)
